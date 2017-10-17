@@ -31,16 +31,13 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.CourseViewHold
     @Override
     public CourseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater li = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View itemView = li.inflate(R.layout.list, parent, false);
+        View itemView = li.inflate(R.layout.final_list, parent, false);
         return new CourseViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(CourseViewHolder holder, final int position) {
-        holder.txt1.setText((CharSequence) mealList);
-
-
-
+        holder.txt1.setText(mealList.get(position));
     }
 
 
@@ -59,5 +56,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.CourseViewHold
             chkbox = (CheckBox) itemView.findViewById(R.id.chkbox);
 
         }
-    }
+
+}
+
 }
