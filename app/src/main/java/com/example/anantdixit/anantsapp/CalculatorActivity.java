@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class Calculator extends AppCompatActivity {
+public class CalculatorActivity extends AppCompatActivity {
     Spinner spin;
     EditText editz;
     ImageView arrow;

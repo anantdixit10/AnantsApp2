@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:background="#ffcc00"
-    tools:context="com.example.anantdixit.anantsapp.Calculator"
+    tools:context="com.example.anantdixit.anantsapp.CalculatorActivity"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <Spinner

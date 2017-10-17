@@ -8,41 +8,42 @@ import java.util.Random;
  */
 
 public class meal {
-    String courseName;
-    String teacher;
-    Integer classes;
+    String mealName;
+    String Protein;
+    String Carbs;
 
-    public String getCourseName() {
-        return courseName;
+    public String getMealName() {
+        return mealName;
     }
 
-    public String getTeacher() {
-        return teacher;
+    public String getProtein() {
+        return Protein;
     }
 
-    public Integer getClasses() {
-        return classes;
+    public String getCarbs() {
+        return Carbs;
     }
 
-    public meal(String courseName, String teacher, Integer classes) {
+    public meal(String mealName, String Protein, String Carbs) {
 
-        this.courseName = courseName;
-        this.teacher = teacher;
-        this.classes = classes;
+        this.mealName = mealName;
+        this.Protein = Protein;
+        this.Carbs = Carbs;
     }
 
-    static String courses[] = {"Crux","Launchpad","Pandora","Algo++","Elixir"};
-    static String teachers[] = {"Arnav","Prateek","Sumit","Rishabh","Harshit","Aayush"};
-
+    static String meals[] = {"milk","Rice","Dal","Roti","Chicken","soyabean",};
+    static String proteins[] = {"3.4gm","2.7gm","6.8gm","11.5gm","25.3gm","16.6gm"};
+    static String Carbos[] = {"5gm","28gm","14gm","55.8gm","0gm","21gm"};
     public static ArrayList<meal> getCourses(int n){
         ArrayList<meal> coursesList  = new ArrayList<>();
         Random r = new Random();
 
         for(int i = 0 ;i< n ;i++){
             meal newCourse = new meal(
-                    courses[r.nextInt(courses.length)],
-                    teachers[r.nextInt(teachers.length)],
-                    20 + r.nextInt(5)
+                    meals[r.nextInt(meals.length)],
+                    proteins[r.nextInt(proteins.length)],
+                    Carbos[r.nextInt(Carbos.length)]
+
             );
             coursesList.add(newCourse);
         }

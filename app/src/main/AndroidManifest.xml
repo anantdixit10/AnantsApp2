@@ -19,8 +19,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Calculator" />
-        <activity android:name=".MealPlanActivity"></activity>
+        <activity android:name=".CalculatorActivity" />
+        <activity android:name=".MealPlanActivity" />
+        <activity android:name=".Databse.ViewListContentsActivity"/>
     </application>
 
 </manifest>

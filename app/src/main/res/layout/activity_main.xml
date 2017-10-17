@@ -48,15 +48,7 @@
             android:id="@+id/btnmealplan"
             android:textSize="20sp"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/btnmealplan"
-            android:layout_marginTop="20dp"
-            android:layout_centerHorizontal="true"
-            android:text="Set Nutrition plan"
-            android:textSize="20sp"
-            android:id="@+id/btnnutplan"/>
+
 
     </RelativeLayout>
 

@@ -26,7 +26,9 @@ public class MainActivity extends AppCompatActivity
 
         calc = (Button)findViewById(R.id.calc);
         btnmealplan = (Button)findViewById(R.id.btnmealplan);
-        btnnutplan = (Button)findViewById(R.id.btnnutplan);
+
+
+
 
         btnmealplan.setOnClickListener(  new Button.OnClickListener()
                                          {
@@ -43,7 +45,7 @@ public class MainActivity extends AppCompatActivity
                 {
                     public void onClick(View view)
                     {
-                        Intent myIntent = new Intent(view.getContext(),Calculator.class);
+                        Intent myIntent = new Intent(view.getContext(),CalculatorActivity.class);
                         startActivity(myIntent);
                     }
                 }

@@ -1,5 +1,6 @@
 package com.example.anantdixit.anantsapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,53 +11,65 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.anantdixit.anantsapp.Databse.ViewListContentsActivity;
 import com.example.anantdixit.anantsapp.Meal.meal;
 import com.example.anantdixit.anantsapp.Meal.mealRecycleradapter;
 
 import java.util.ArrayList;
 
 public class MealPlanActivity extends AppCompatActivity {
-    EditText etCourse,etTeacher,etClasses;
-    Button btnAdd;
-    RecyclerView rvCourseList;
-    ArrayList<meal> coursesList = new ArrayList<>();
+    EditText edit1,edit2,edit3;
+    Button btnAdd,btnsubmit;
+    RecyclerView rvmealList;
+    ArrayList<meal> mealList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meal_plan);
 
-        etCourse = (EditText) findViewById(R.id.edit1);
-        etTeacher = (EditText) findViewById(R.id.edit2);
-        etClasses = (EditText) findViewById(R.id.edit2);
+        edit1 = (EditText) findViewById(R.id.edit1);
+        edit2 = (EditText) findViewById(R.id.edit2);
+        edit3 = (EditText) findViewById(R.id.edit3);
         btnAdd = (Button) findViewById(R.id.btn1);
-        rvCourseList = (RecyclerView) findViewById(R.id.rvCourses);
+        btnsubmit = (Button)findViewById(R.id.btnsubmit);
+        rvmealList = (RecyclerView) findViewById(R.id.rvCourses);
 
-        coursesList = meal.getCourses(10);
+        mealList = meal.getCourses(10);
 
-        final mealRecycleradapter adapter = new mealRecycleradapter(this,coursesList);
-        rvCourseList.setLayoutManager(new LinearLayoutManager(this));
-        rvCourseList.setAdapter(adapter);
+
+        final mealRecycleradapter adapter = new mealRecycleradapter(this,mealList);
+        rvmealList.setLayoutManager(new LinearLayoutManager(this));
+        rvmealList.setAdapter(adapter);
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String checkCourse = etCourse.getText().toString();
-                String checkTeacher = etTeacher.getText().toString();
-                String checkClasses = etClasses.getText().toString();
-                if(TextUtils.isEmpty(checkCourse)||TextUtils.isEmpty(checkTeacher)||TextUtils.isEmpty(checkClasses)){
+                String checkMeal = edit1.getText().toString();
+                String checkProtein = edit2.getText().toString();
+                String checkCarbs = edit3.getText().toString();
+                if(TextUtils.isEmpty(checkMeal)||TextUtils.isEmpty(checkProtein)||TextUtils.isEmpty(checkCarbs)){
                     Toast.makeText(MealPlanActivity.this, "Fields Cannot Be Empty", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 meal newCourse = new meal(
-                        checkCourse,
-                        checkTeacher,
-                        Integer.valueOf(checkClasses)
+                        checkMeal,
+                        checkProtein,
+                        checkCarbs
                 );
-                coursesList.add(newCourse);
+                mealList.add(newCourse);
                 adapter.notifyDataSetChanged();
             }
         });
+
+        btnsubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), ViewListContentsActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }
 
